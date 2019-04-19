@@ -1,7 +1,7 @@
 # ESP-HTML
 
 This is a small JavaScript library to provide a simple way to include sensor values from [ESPEasy](https://github.com/letscontrolit/ESPEasy) devices in an HTML page. \
-It is intended to be used for html pages inside your LAN - you should not use it for public web sites!
+It is intended to be used for HTML pages inside your LAN - you should not use it for public web sites!
 
 ## Usage
 
@@ -23,7 +23,7 @@ That's it!
 
 I am sure this simple library has plenty of room left to improve it.
 
-If you wish to do so, please go ahaead! Fork the repo or submit merge requests. \
+If you wish to do so, please go ahaead! Fork the repo or submit pull requests. \
 You may even try opening an issue - but be warned: I don't intend to support this project very much,
 but it might still be worth a try to share ideas this way - you never know who listens ;-)
 
