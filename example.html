@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"/>
+    <title>ESP-HTML Example</title>
+    <!-- ESP-HTML: include the scripts we need: the library jquery.js and our main script esphtml.js-->
+    <script src="jquery.js" type="text/javascript"></script>
+    <script language="javascript" type="text/javascript" src="esphtml.js"></script>
+
+    <!-- ESP-HTML: Definition of espeasy-URLs to load JSON data from
+         You can either put this into the HTML source like we do here,
+         or into another js file that is referenced like the other scripts.  -->
+    <script language="javascript" type="text/javascript">
+      /* This has to be a JSON array of objects.
+         Each object must contain a unique "Name" that is used to reference the item
+         in the HTML tags and the "URL" that has to be loaded.  */
+      var ESP_JSONData = [
+        {"Name": "first",   "URL":"http://first-espeasy/json"},
+        {"Name": "second",  "URL":"http://second-espeasy/json"},
+        {"Name": "another", "URL":"http://another-espeasy/json"}
+      ];
+
+      /* Refresh interval may be set here. Default is -1, which means "never".  */
+      ESP_Refresh_Interval_s = 60;
+    </script>
+  </head>
+
+  <!-- ESP-HTML: Our script is called with the onbload event of the body tag. -->
+  <body onload="ESP_getAllJSON()">
+    <h1>ESP-HTML Example</h1>
+    <!-- ESP-HTML: you may use as many HTML tags as you like (<span> is recommended).
+         To enable ESP-HTML for a tag, it has to be of the class "ESPvalue" and it must have
+         a unique ID.
+         If this is the case, the HTML code inside this tag will be replaced by a sensor value,
+         defined by the attributes
+         * ESP = Name of an Element in ESP_JSONData
+         * Sensor = Index of the Sensor object inside the JSON data
+         * Value = Index of the value inside the Sensor object
+         If the optional attribute "unit" is defined, this unit will be added after the value
+         (separated by a space character).
+   -->
+   <h2>Values from first ESP</h2>
+   <p>First Sensor, first Value:&nbsp;<span class="ESPvalue" id="numberone" ESP="first" Sensor="0" Value="0" unit="°C">.</span></p>
+   <p>First Sensor, second Value:&nbsp;<span class="ESPvalue" id="numbertwo" ESP="first" Sensor="0" Value="1" unit="°C">.</span></p>
+   <!-- I used a "." so the tag's html is not entirely empty and I can see some placeholder while loading the page.
+       This can be anything and will be replaced by the value. -->
+
+   <h2>Values from another ESP</h2>
+   <p>Value without unit:&nbsp;<span class="ESPvalue" id="aaa" ESP="first" Sensor="0" Value="0">.</span></p>
+   <p>Third sensor of this ESP:&nbsp;<span class="ESPvalue" id="bbb" ESP="first" Sensor="2" Value="0" unit="V">.</span></p>
+  </body>
+</html>
